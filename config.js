@@ -11,7 +11,7 @@ module.exports = function () {
           COGNITO_TOKEN_USE: "access",
           COGNITO_TOKEN_EXPIRATION: 3600000,
           APP_SESSION_SECRET: "THISISASECRET",
-          APP_SESSION_KEY: "NAMEOFCOOKIEFORTHISAPP",
+          APP_SESSION_KEY: "NAME_OF_COOKIE_FOR_THIS_APP",
           MAIN_DATASET_NAME: "main_DS",
           SERVER_PORT: 3000,
           SERVER_IP: "0.0.0.0"
@@ -25,7 +25,7 @@ module.exports = function () {
           COGNITO_TOKEN_USE: "access",
           COGNITO_TOKEN_EXPIRATION: 3600000,
           APP_SESSION_SECRET: "THISISASECRET",
-          APP_SESSION_KEY: "NAMEOFCOOKIEFORTHISAPP",          
+          APP_SESSION_KEY: "NAME_OF_COOKIE_FOR_THIS_APP",          
           MAIN_DATASET_NAME: "main_DS",
           SERVER_PORT: 3000,
           SERVER_IP: "0.0.0.0"
