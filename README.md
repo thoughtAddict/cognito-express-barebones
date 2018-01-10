@@ -35,13 +35,13 @@ When all is complete, this will be a full-fledged, barebones Express app that wi
 - [x] Forgot Password 
 - [x] Change Password 
 - [x] How to use the Tokens to determine if the user is signed on or not. 
+- [x] How to save the Tokens that are returned from the Cognito service.
 - [x] Private (Secure) Page example(s) - (There's 1 but need more)
 - [x] Public Page examples(s) - (There's 1 but need more)
 - [x] Logout 
 
 ### Currently in Development
 
-- [ ] How to save the Tokens that are returned from the Cognito service.
 - [ ] Resend Confirmation Email
 - [ ] Confirmation of Sign Up / Registration after receiving a confimation # via email. 
 - [ ] UI improvements (ie.  Let's use some CSS, shall we?)
