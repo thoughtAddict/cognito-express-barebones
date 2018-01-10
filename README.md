@@ -47,7 +47,7 @@ When all is complete, this will be a full-fledged, barebones Express app that wi
 - [ ] UI improvements (ie.  Let's use some CSS, shall we?)
 
 
-NOTE: The 'config.js' file is where you should place your various AWS user pool and identity IDs. 
+### Config.js
 
 Example:
 
