@@ -12,15 +12,19 @@ const AWS        = require('aws-sdk');
 module.exports = function (app, cognitoExpress, cognitoUserPoolData) {
 
   app.use(function(req, res, next) {
-    cognitoExpress.validate(req.cookies.accessToken, function(err, response) {
-      if ( typeof req.session !== 'undefined' ) {    
-        if ( typeof req.session.user === 'undefined' ) {
-          req.session.user = {};
-        }        
-        req.session.user = response;   
-      }   
+    if ( typeof req.session !== 'undefined' ) {      
+
+        cognitoExpress.validate(req.session.accessToken, function(err, response) {
+          if ( typeof req.session.user === 'undefined' ) {
+            req.session.user = {};
+          }        
+          req.session.user = response;             
+          next();
+        });
+     
+    } else {
       next();
-    });
+    }
   });
 
   app.get("/", function (req, res) {
@@ -101,8 +105,7 @@ module.exports = function (app, cognitoExpress, cognitoUserPoolData) {
     cognitoUser.authenticateUser(authenticationDetails, {
       onSuccess: function (result) {
 
-        res.cookie("accessToken", result.accessToken.jwtToken);
-
+        req.session.accessToken = result.accessToken.jwtToken;
         req.session.idToken = result.idToken.jwtToken;
         req.session.refreshToken = result.refreshToken.token;
         req.session.username = cognitoUser.getUsername();
@@ -181,7 +184,7 @@ module.exports = function (app, cognitoExpress, cognitoUserPoolData) {
         cognitoUser.signOut();
       
         //res.clearCookie("idToken");
-        res.clearCookie("accessToken");
+        //res.clearCookie("accessToken");
         //res.clearCookie("refreshToken");
         //res.clearCookie("SyncSessionToken");    
         //res.clearCookie("DatasetSyncCount");                
