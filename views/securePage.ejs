@@ -1,0 +1,22 @@
+
+<% if ( user.signedIn ) { %>
+
+This is Secure/Private content.
+<br/>
+<br/>
+<br/>
+<a href="/logout">Sign Out</a>
+
+<% } else { %>
+
+This is non-Secure/non-Private content, open to the world.
+<br/>
+<br/>
+<br/>
+<a href="/login">Sign In</a>
+
+<% } %>
+
+<br/>
+<br/>
+<a href="/">Home</a>

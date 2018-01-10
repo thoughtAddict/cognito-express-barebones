@@ -1,0 +1,38 @@
+<% layout('layout') -%>
+
+Confirm Registration<br/>
+<form name="confirmForm" id="confirmForm" action="/confirm" method="POST">
+<input type="text" name="confirmCode" id="confirmCode" value=""/><br/><br/>
+<input type="submit" id="submitBtn" value="Submit"/>
+</form>
+
+
+<span id="confirmationMessage"><%= message %></span>
+
+<br/>
+<br/>
+<span id="resendConfirmation">Resend Confirmation Email</span>
+
+
+<script type="text/javascript">
+
+	$(document).ready(function () {
+	
+	  $("#resendConfirmation").click(function() {	  
+	    socket.emit("resendConfirmation", {"username":"<%= username %>"});
+	  });
+	
+	
+    socket.on("resendConfirmationResult", function(data){
+    
+      if ( typeof data.message !== 'undefined' && data.message !== '' ) {
+        $("#confirmationMessage").html(data.message);
+      }
+    
+      console.log(data);
+      
+    });	
+	
+	});
+	
+</script>

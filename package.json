@@ -1,0 +1,25 @@
+{
+  "name": "cognito-express-barebones",
+  "version": "0.1.0",
+  "description": "Barebones NodeJS/Express application that uses the AWS Cognito service.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jon D Cruz",
+  "license": "MIT",
+  "dependencies": {
+    "amazon-cognito-identity-js": "^1.19.0",
+    "amazon-cognito-identity-js-node": "0.0.3",
+    "amazon-cognito-js": "^1.1.0",
+    "aws-sdk": "^2.103.0",
+    "body-parser": "^1.17.2",
+    "cognito-express": "^2.0.1",
+    "cookie-parser": "^1.4.3",
+    "ejs-locals": "^1.0.2",
+    "express": "^4.15.4",
+    "express-session": "^1.15.5",
+    "jwt-decode": "^2.2.0",
+    "socket.io": "^2.0.3"
+  }
+}

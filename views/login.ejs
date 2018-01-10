@@ -1,0 +1,17 @@
+<% layout('layout') -%>
+
+Login<br/>
+<form name="loginForm" id="loginForm" action="/login" method="POST">
+<input type="text" name="username" id="username" value=""/><br/><br/>
+<input type="password" name="password" id="password" value=""/><br/><br/>
+<input type="submit" id="submitBtn" value="Submit"/>
+<br/><br/>
+<%= message %>
+</form>
+<br/>
+<br/>
+<a href="/forgotPassword">Forgot Password?</a>
+
+<br/>
+<br/>
+<a href="/">Home</a>

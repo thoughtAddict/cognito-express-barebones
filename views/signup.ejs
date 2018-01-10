@@ -1,0 +1,19 @@
+<% layout('layout') -%>
+
+Sign Up<br/><br/>
+
+<form name="signUpForm" id="signUpForm" action="/signup" method="POST">
+
+  Email: <input type="text" name="username" id="username" value=""/>  
+  <br/><br/>
+  Password: <input type="password" name="password" id="password" value=""/>
+  <br/><br/>
+  <input type="radio" name="plan" value="Plan1" checked><label for="Plan1"> Plan1</label>
+  <input type="radio" name="plan" value="Plan2"><label for="Plan2"> Plan2</label>
+  <input type="radio" name="plan" value="Plan3"><label for="Plan3"> Plan3</label>
+  <br/><br/>
+  <input type="submit" id="submitBtn" value="Submit"/>
+  <br/><br/>  
+  <%= message %>
+  
+</form>
