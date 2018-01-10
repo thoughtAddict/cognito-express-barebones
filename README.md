@@ -49,4 +49,42 @@ When all is complete, this will be a full-fledged, barebones Express app that wi
 
 NOTE: The 'config.js' file is where you should place your various AWS user pool and identity IDs. 
 
+Example:
+
+```
+const environment = process.env.NODE_ENV || 'development';
+
+module.exports = function () {
+
+    if (environment === 'development') {
+        return {
+          USER_POOL_ID: "<<YOUR USER POOL ID>>",
+          APP_CLIENT_ID: "<<YOUR APP CLIENT ID>>",
+          IDENTITY_POOL_ID: "<<YOUR IDENTITY POOL ID>>",
+          AWS_REGION: "<<YOUR REGION>>",
+          COGNITO_TOKEN_USE: "access",
+          COGNITO_TOKEN_EXPIRATION: 3600000,
+          APP_SESSION_SECRET: "THIS_IS_A_SECRET",
+          APP_SESSION_KEY: "NAME_OF_COOKIE_FOR_THIS_APP",
+          MAIN_DATASET_NAME: "main_DS",
+          SERVER_PORT: 3000,
+          SERVER_IP: "0.0.0.0"
+        };
+    } else if (environment === 'production') {
+        return {
+          USER_POOL_ID: "<<YOUR USER POOL ID>>",
+          APP_CLIENT_ID: "<<YOUR APP CLIENT ID>>",
+          IDENTITY_POOL_ID: "<<YOUR IDENTITY POOL ID>>",
+          AWS_REGION: "<<YOUR REGION>>",
+          COGNITO_TOKEN_USE: "access",
+          COGNITO_TOKEN_EXPIRATION: 3600000,
+          APP_SESSION_SECRET: "THIS_IS_A_SECRET",
+          APP_SESSION_KEY: "NAME_OF_COOKIE_FOR_THIS_APP",          
+          MAIN_DATASET_NAME: "main_DS",
+          SERVER_PORT: 3000,
+          SERVER_IP: "0.0.0.0"
+        };
+    }
+};
+```
 
