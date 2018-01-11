@@ -315,13 +315,15 @@ module.exports = function (app, cognitoExpress, cognitoUserPoolData) {
 
     let attributeList = [];
     let attributeEmail = new CognitoSDK.CognitoUserAttribute("email", username);   
-    attributeList.push(attributeEmail);
+    attributeList.push(attributeEmail);  
     //let attributeName = new CognitoSDK.CognitoUserAttribute("name", "Dingus");  
     //attributeList.push(attributeName);
       
     let cognitoUserPool = new CognitoSDK.CognitoUserPool(cognitoUserPoolData);
 
-    cognitoUserPool.signUp(username, password, attributeList, null, function(err, result){
+    cognitoUserPool.signUp("dingus", password, attributeList, null, function(err, result){
+    
+    console.log(err);
       
       if (err) {
         res.render("signup", {locals: {
