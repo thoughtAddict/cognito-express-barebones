@@ -310,21 +310,20 @@ module.exports = function (app, cognitoExpress, cognitoUserPoolData) {
   app.post("/signup", function(req, res){
 
     let username = typeof req.body.username === 'undefined' ? "" : req.body.username;
+    let email    = typeof req.body.email === 'undefined' ? "" : req.body.email;
     let password = typeof req.body.password === 'undefined' ? "" : req.body.password;
     let plan     = typeof req.body.plan === 'undefined' ? "" : req.body.plan;          
 
     let attributeList = [];
-    let attributeEmail = new CognitoSDK.CognitoUserAttribute("email", username);   
+    let attributeEmail = new CognitoSDK.CognitoUserAttribute("email", email);   
     attributeList.push(attributeEmail);  
     //let attributeName = new CognitoSDK.CognitoUserAttribute("name", "Dingus");  
     //attributeList.push(attributeName);
       
     let cognitoUserPool = new CognitoSDK.CognitoUserPool(cognitoUserPoolData);
 
-    cognitoUserPool.signUp("dingus", password, attributeList, null, function(err, result){
-    
-    console.log(err);
-      
+    cognitoUserPool.signUp(username, password, attributeList, null, function(err, result){
+ 
       if (err) {
         res.render("signup", {locals: {
           title: "Sign Up",
@@ -332,19 +331,19 @@ module.exports = function (app, cognitoExpress, cognitoUserPoolData) {
           user: Utils.getUserInfo(req, res)
         }});       
       } else {
-          
+                 
         cognitoUser = result.user;
         console.log('user name is ' + cognitoUser.getUsername());
         req.session.username = cognitoUser.getUsername();
         req.session.plan = plan;
-
+      
         res.render("confirm", {locals: {
           title: "Please Confirm",
           username: cognitoUser.getUsername(),
           message: "Please enter the verification code you received in your email.",        
           user: Utils.getUserInfo(req, res)
         }});  
-        
+  
       }
     });   
   });
@@ -400,7 +399,6 @@ module.exports = function (app, cognitoExpress, cognitoUserPoolData) {
       }      
     });   
   });
-
   app.get("/saveRecord", function(req, res){
 
     AWS.config.credentials.get(function() {
