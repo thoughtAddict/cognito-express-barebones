@@ -79,22 +79,16 @@ io.on("connection", function(client){
 	client.on("resendConfirmation", function(data) {
 
     let cognitoUserPool = new CognitoSDK.CognitoUserPool(cognitoUserPoolData);
-
-    let username = data.username;
-
-    let userData = {
-      Username : username,
+    let cognitoUser = new CognitoSDK.CognitoUser({
+      Username : data.username,
       Pool : cognitoUserPool
-    };
-
-    let cognitoUser = new CognitoSDK.CognitoUser(userData);
+    });
+    
     cognitoUser.resendConfirmationCode(function(err, result) {
     
         if (err) {
             console.log(err);
         }
-        console.log('call result: ' + result);
-        
         io.to(clientId).emit("resendConfirmationResult", data);
     });   
 	});

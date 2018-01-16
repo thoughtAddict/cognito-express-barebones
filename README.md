@@ -39,10 +39,10 @@ When all is complete, this will be a full-fledged, barebones Express app that wi
 - [x] Private (Secure) Page example(s) - (There's 1 but need more)
 - [x] Public Page examples(s) - (There's 1 but need more)
 - [x] Logout 
+- [x] Resend Confirmation Email
 
 ### Currently in Development
 
-- [ ] Resend Confirmation Email
 - [ ] Confirmation of Sign Up / Registration after receiving a confimation # via email. 
 - [ ] UI improvements (ie.  Let's use some CSS, shall we?)
 
@@ -67,6 +67,8 @@ module.exports = function () {
           APP_SESSION_SECRET: "THIS_IS_A_SECRET",
           APP_SESSION_KEY: "NAME_OF_COOKIE_FOR_THIS_APP",
           MAIN_DATASET_NAME: "main_DS",
+        	NEW_SIGNUP_STATUS: "NEW_SIGNUP",
+        	COMPLETE_SIGNUP_STATUS: "REGISTRATION_COMPLETED",           
           SERVER_PORT: 3000,
           SERVER_IP: "0.0.0.0"
         };
@@ -81,6 +83,8 @@ module.exports = function () {
           APP_SESSION_SECRET: "THIS_IS_A_SECRET",
           APP_SESSION_KEY: "NAME_OF_COOKIE_FOR_THIS_APP",          
           MAIN_DATASET_NAME: "main_DS",
+        	NEW_SIGNUP_STATUS: "NEW_SIGNUP",
+        	COMPLETE_SIGNUP_STATUS: "REGISTRATION_COMPLETED",           
           SERVER_PORT: 3000,
           SERVER_IP: "0.0.0.0"
         };
