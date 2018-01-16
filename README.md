@@ -8,7 +8,7 @@ Mid-2017 I searched for a server-side solution for accessing the AWS Cognito ser
 
 I either couldn't find a complete solution, or the documentation was dated, incorrect, or not functional.
 
-## Still working on it...
+## Still working on it...  almost complete and in "testing".
 
 This project is the result of those many hours of finding bits and pieces of what I need to get Cognito accessible via a NodeJS/Express server.
 
@@ -67,8 +67,8 @@ module.exports = function () {
           APP_SESSION_SECRET: "THIS_IS_A_SECRET",
           APP_SESSION_KEY: "NAME_OF_COOKIE_FOR_THIS_APP",
           MAIN_DATASET_NAME: "main_DS",
-        	NEW_SIGNUP_STATUS: "NEW_SIGNUP",
-        	COMPLETE_SIGNUP_STATUS: "REGISTRATION_COMPLETED",           
+          NEW_SIGNUP_STATUS: "NEW_SIGNUP",
+          COMPLETE_SIGNUP_STATUS: "REGISTRATION_COMPLETED",
           SERVER_PORT: 3000,
           SERVER_IP: "0.0.0.0"
         };
@@ -83,8 +83,8 @@ module.exports = function () {
           APP_SESSION_SECRET: "THIS_IS_A_SECRET",
           APP_SESSION_KEY: "NAME_OF_COOKIE_FOR_THIS_APP",          
           MAIN_DATASET_NAME: "main_DS",
-        	NEW_SIGNUP_STATUS: "NEW_SIGNUP",
-        	COMPLETE_SIGNUP_STATUS: "REGISTRATION_COMPLETED",           
+          NEW_SIGNUP_STATUS: "NEW_SIGNUP",
+          COMPLETE_SIGNUP_STATUS: "REGISTRATION_COMPLETED",
           SERVER_PORT: 3000,
           SERVER_IP: "0.0.0.0"
         };
