@@ -155,7 +155,7 @@ module.exports = {
                     req.session.status = config.COMPLETE_SIGNUP_STATUS;
                     
                     res.render("index", {locals: {
-                      title: "Hello Home 2",
+                      title: "Home",
                       user: thisUtils.getUserInfoFromLogin(cognitoUser, data.Records, req, res)
                     }});                                      
                   }
@@ -164,7 +164,7 @@ module.exports = {
               } else {             
                 console.log("EXISTING LOGIN");    
                 res.render("index", {locals: {
-                  title: "Hello Home 1",
+                  title: "Home",
                   user: thisUtils.getUserInfoFromLogin(cognitoUser, data.Records, req, res)
                 }});                                                     
               }             

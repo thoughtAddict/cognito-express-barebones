@@ -58,13 +58,6 @@ module.exports = function (app, cognitoExpress, cognitoUserPoolData) {
     }});   
   });
 
-  app.get("/securePage", function(req, res){
-    res.render("securePage", {locals: {
-      title: "Secure Page",
-      user: Utils.getUserInfo(req, res)
-    }});  
-  });
-
   app.get("/profile", function(req, res){
 
     let user = Utils.getUserInfo(req, res);

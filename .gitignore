@@ -63,3 +63,5 @@ typings/
 # Notes
 notes
 
+# IDE
+.idea

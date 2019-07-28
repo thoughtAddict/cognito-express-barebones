@@ -1,14 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title><%= title %></title>  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <title><%= title %></title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+  <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
+
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+
   <script src="/socket.io/socket.io.js"></script>
   <script type="text/javascript">
     var socket = io();
-  </script>    
+  </script>
+
+  <style>
+
+    .clearBoth {
+      clear: both;
+    }
+
+    .floatLeft {
+      float: left;
+    }
+
+    .floatRight {
+      float: right;
+    }
+
+    .headerBar {
+      height: 60px;
+      width: 100%;
+      background-color: #cccccc;
+    }
+
+    .logo {
+      float: left;
+      margin: 20px 0 0 20px;
+    }
+
+    .logo a {
+      text-decoration: none;
+    }
+
+    .register,
+    .login {
+      float: right;
+      margin: 20px 20px 0 0;
+    }
+
+    .register a,
+    .login a {
+      text-decoration: none;
+    }
+
+    .formHeader {
+      text-align: center;
+      margin: 60px 0 20px 0;
+      font-size: 22px;
+    }
+
+    .loginForgotPassword,
+    .resendConfirmation {
+      text-align: center;
+      margin: 20px 0 0 0;
+    }
+
+    .resendConfirmation {
+      cursor: pointer;
+    }
+
+    .submitButtonContainer {
+      text-align: center;
+      margin: 20px 0 0 0;
+    }
+
+    .messageContainer {
+      text-align: center;
+      margin: 0 0 20px 0;
+    }
+
+    .formRow {
+      margin: 10px 0 10px 0;
+    }
+
+    .usernameLabel,
+    .passwordLabel,
+    .oldPasswordLabel,
+    .newPasswordLabel,
+    .confirmLabel {
+      padding: 5px 40px 0 0;
+    }
+
+    .changePasswordFormHeader {
+      text-align: center;
+      margin: 20px 0 20px 0;
+      font-size: 22px;
+    }
+
+    .usernameHeader {
+      text-align: center;
+      margin: 60px 0 20px 0;
+      font-size: 22px;
+    }
+
+    .registerPlans {
+      text-align: center;
+      margin: 20px 0 0 0;
+    }
+
+    .homeMessage {
+      width: 100%;
+      margin: 60px 0 0 0;
+      font-size: 22px;
+      text-align: center;
+    }
+
+  </style>
 </head>
 <body>
+
+  <div class="headerBar">
+    <div class="logo">
+      <a href="/">Company Logo/Name</a>
+    </div>
+    <div class="login">
+      <% if ( user.signedIn ) { %>
+      <a href="/logout">Sign Out</a>
+      <% } else { %>
+      <a href="/login">Sign In</a>
+      <% } %>
+    </div>
+    <div class="register">
+      <% if ( !user.signedIn ) { %>
+      <a href="/signup">Register</a>
+      <% } else { %>
+      <a href="/profile">My Profile</a>
+      <% } %>
+    </div>
+    <div class="clearBoth"></div>
+  </div>
 
 <%- body %>    
 

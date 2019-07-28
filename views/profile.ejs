@@ -1,25 +1,38 @@
+<% layout('layout') -%>
 
 <% if ( user.signedIn ) { %>
 
-You are Logged in: <%= user.username %> (<a href="/profile">Your Account Profile</a>)
-<br/><br/>
-
-Change Password:
-<form name="changePasswordForm" id="changePasswordForm" action="/changePassword" method="POST">
-Old: <input type="password" name="oldPassword" id="oldPassword" value=""/><br/><br/>
-New: <input type="password" name="newPassword" id="newPassword" value=""/><br/><br/>
-<input type="submit" id="submitBtn" value="Submit"/>
-<br/><br/>
-<%= message %>
-</form>
-<br/>
-<br/>
-<br/>
-<a href="/logout">Sign Out</a>
-<br/>
-<br/>
-<a href="/">Home</a>
+<div class="pure-g">
+  <div class="usernameHeader pure-u-1">
+    Username: <%= user.username %>
+  </div>
+  <div class="changePasswordFormHeader pure-u-1">
+    Change Password
+  </div>
+  <div class="messageContainer pure-u-1">
+    <%= message %>
+  </div>
+  <div class="changePasswordForm pure-u-1">
+    <form name="changePasswordForm" id="changePasswordForm" action="/changePassword" method="POST">
+    <div class="pure-g">
+      <div class="pure-u-1-2 formRow">
+        <div class="oldPasswordLabel floatRight">Old Password</div>
+      </div>
+      <div class="pure-u-1-2 formRow">
+        <input type="password" name="oldPassword" id="oldPassword" value=""/>
+      </div>
+      <div class="pure-u-1-2 formRow">
+        <div class="newPasswordLabel floatRight">New Password</div>
+      </div>
+      <div class="pure-u-1-2 formRow">
+        <input type="password" name="newPassword" id="newPassword" value=""/>
+      </div>
+      <div class="pure-u-1 submitButtonContainer">
+        <input type="submit" id="submitBtn" value="Submit"/>
+      </div>
+    </div>
+    </form>
+  </div>
+</div>
 
 <% } %>
-
-
